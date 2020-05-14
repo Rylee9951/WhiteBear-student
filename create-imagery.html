@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Imagery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/dist.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <img
+            width="32px"
+            src="./assets/branding/logo-app.svg"
+            alt="White bear logo"
+          />
+          <h3 class="d-inline text-brand">White Bear</h3>
+
+          <button class="btn btn-link float-right" id="logOut">
+            Log out
+          </button>
+
+          <div
+            class="btn-group d-flex mb-5"
+            role="navigation"
+            aria-label="navigation"
+          >
+            <button
+              id="createNew"
+              type="button"
+              class="btn btn-secondary tab-active"
+            >
+              Create new
+            </button>
+            <button
+              id="review"
+              type="button"
+              class="btn btn-secondary tab-seperator"
+            >
+              Review
+            </button>
+            <button
+              id="allcards"
+              type="button"
+              class="btn btn-secondary tab-seperator"
+            >
+              All cards
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%;" class="text-center mt-2 mb-2">
+        <h4 style="color: #767886;">Add memorable imagery</h4>
+      </div>
+      <div style="margin-top: 10px;" class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-10">
+              <div
+                style="
+                  background: #51535e;
+                  color: white;
+                  margin: 0 auto;
+                  width: 310px;
+                  padding: 15px;
+                  border-radius: 5px 5px 0 0;
+                "
+                class="card"
+              >
+                <textarea
+                  style="
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    caret-color: white;
+                    color: white;
+                  "
+                  rows="6"
+                  id="addImagery"
+                ></textarea>
+              </div>
+              <div
+                style="
+                  background: #2a2a30;
+                  color: white;
+                  padding: 15px;
+                  width: 310px;
+                  border-radius: 0 0 5px 5px;
+                "
+                class="card"
+              >
+                <p>
+                  Lucas ipsum dolor sit amet jarael sarn ryn soontir cathar
+                  lando coruscant draethos trioculus bespin. Priapulin nass nien
+                  calrissian dagobah grievous. Olié mothma c-3po wicket c'baoth.
+                  Jagged kastolar kitonak rugor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div
+        style="margin: 10px auto; width: 340px;"
+        class="d-flex justify-content-end"
+      >
+        <p id="imageryCount">0/240</p>
+      </div>
+      <div class="row">
+        <div class="col-1"></div>
+        <div
+          style="display: flex; justify-content: space-between;"
+          class="col-10"
+        >
+          <button id="backToAnswer" class="btn btn-link" style="color: black;">
+            Back to answer
+          </button>
+          <button
+            id="save"
+            style="display: flex;"
+            class="btn btn-primary btn-lg"
+          >
+            <img
+              style="width: 16px; margin-top: 5px; margin-right: 3px;"
+              src="./assets/icons/save.svg"
+            />
+            Save
+          </button>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          text-align: center;
+        "
+        id="successAlert"
+        class="alert alert-success"
+        role="alert"
+      >
+        <h4 class="alert-heading">
+          <img style="width: 20px;" src="./assets/icons/success.svg" /> Card
+          created!
+        </h4>
+      </div>
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          text-align: center;
+        "
+        id="errorAlert"
+        class="alert alert-danger"
+        role="alert"
+      >
+        <h4 class="alert-heading">
+          <img style="width: 20px;" src="./assets/icons/error.svg" /> Oops! Our
+          bad. Please try again.
+        </h4>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

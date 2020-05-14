@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White Bear</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/dist.css" />
+  </head>
+  <body>
+    <div id="landingContainer">
+      <div class="container">
+        <div class="row header mt-3">
+          <img
+            style="margin-top: 20px;"
+            class="col-4"
+            src="./assets/branding/logo-landing.png"
+          />
+          <h1
+            class="col-6 title mt-4"
+            style="font-size: 60px; margin-top: 20px; display: flex;"
+          >
+            White Bear
+          </h1>
+        </div>
+        <div style="margin-top: 20px;" class="row mt-4">
+          <div class="col-5">
+            <div style="padding: 15px;" class="card p-3">
+              <h2>Nice to meet you</h2>
+              <div id="card1" class="d-flex flex-column">
+                <p style="font-size: 13px;">
+                  Sign up for White Bear. Free forever.
+                </p>
+                <button
+                  style="margin-top: 20px;"
+                  id="signUpButton"
+                  class="btn btn-success"
+                >
+                  Sign up
+                </button>
+              </div>
+              <div id="card2">
+                <p class="text-primary" style="font-size: 13px;">
+                  Lets get you signed up.
+                </p>
+                <form action="./create-answer.html" class="d-flex flex-column">
+                  <div class="d-flex flex-column">
+                    <label class="text-black-50">Email address</label>
+                    <input type="email" />
+                  </div>
+                  <div class="d-flex flex-column">
+                    <label class="text-black-50">Create a password</label>
+                    <input type="password" />
+                  </div>
+                  <button
+                    style="margin-top: 20px;"
+                    type="submit"
+                    class="btn btn-success mt-4"
+                  >
+                    Let's go!
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-5">
+            <div style="padding: 15px;" class="card p-3">
+              <h2>Welcome back</h2>
+              <p style="font-size: 13px;">
+                Log in with your email address and password
+              </p>
+              <form action="./create-answer.html" class="d-flex flex-column">
+                <div class="d-flex flex-column">
+                  <label class="text-black-50">Email address</label>
+                  <input type="email" />
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="text-black-50">Password</label>
+                  <input type="password" />
+                </div>
+                <button
+                  type="submit"
+                  style="width: 130px; margin-left: 205px; margin-top: 20px;"
+                  class="btn btn-success mt-4"
+                >
+                  Log in
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

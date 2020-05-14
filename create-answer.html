@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Answer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/dist.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <img
+            width="32px"
+            src="./assets/branding/logo-app.svg"
+            alt="White bear logo"
+          />
+          <h3 class="d-inline text-brand">White Bear</h3>
+
+          <button class="btn btn-link float-right" id="logOut">
+            Log out
+          </button>
+
+          <div
+            class="btn-group d-flex mb-5"
+            role="navigation"
+            aria-label="navigation"
+          >
+            <button
+              id="createNew"
+              type="button"
+              class="btn btn-secondary tab-active"
+            >
+              Create new
+            </button>
+            <button
+              id="review"
+              type="button"
+              class="btn btn-secondary tab-seperator"
+            >
+              Review
+            </button>
+            <button
+              id="allcards"
+              type="button"
+              class="btn btn-secondary tab-seperator"
+            >
+              All cards
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="width: 100%;" class="text-center">
+        <h4>Add an answer</h4>
+      </div>
+      <div class="card bg-primary">
+        <div class="card-body">
+          <textarea rows="6" id="createAnswer"></textarea>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-2">
+        <p id="answerCount">0/240</p>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button id="createNextBtn" class="btn btn-outline-primary">Next</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
