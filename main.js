@@ -56,7 +56,34 @@ $(document).ready(function () {
     }
     if (valid) {
       let myDate = new Date()
-      let date = Date.now()
+
+      let year = myDate.getFullYear()
+      let splitYear = year.toString().split("")
+      let finalYear = splitYear[2] + splitYear[3]
+      let month = myDate.getMonth() + 1
+      if (month < 10) {
+        month = "0" + month
+      }
+      let day = myDate.getDate()
+      if (day < 10) {
+        day = "0" + day
+      }
+      let hours = myDate.getHours()
+      if (hours > 12) {
+        hours = hours - "12"
+      }
+      if (hours < 10) {
+        hours = "0" + hours
+      }
+      let minutes = myDate.getMinutes()
+      if (minutes < 10) {
+        minutes = "0" + minutes
+      }
+      let seconds = myDate.getSeconds()
+      if (seconds < 10) {
+        seconds = "0" + seconds
+      }
+
       let idPad = Math.floor(Math.random() * 999).toString()
       let idMilli = myDate.getMilliseconds().toString()
       if (idPad.length === 1) {
@@ -69,12 +96,12 @@ $(document).ready(function () {
       } else if (idMilli.length === 2) {
         idMilli += "0"
       }
-
+      let finalDate = finalYear + month + day + hours + minutes + seconds
       console.log({
         _id: idPad + idMilli,
         email: email,
         password: password,
-        createdOn: date,
+        createdOn: finalDate,
       })
     }
   })
@@ -141,8 +168,34 @@ $(document).ready(function () {
     let finalCount = $("#addImagery").val().length
     let finalImagery = $("#addImagery").val()
     let finalAnswer = $("#answerBody").html()
+
     let myDate = new Date()
-    let date = Date.now()
+    let year = myDate.getFullYear()
+    let splitYear = year.toString().split("")
+    let finalYear = splitYear[2] + splitYear[3]
+    let month = myDate.getMonth() + 1
+    if (month < 10) {
+      month = "0" + month
+    }
+    let day = myDate.getDate()
+    if (day < 10) {
+      day = "0" + day
+    }
+    let hours = myDate.getHours()
+    if (hours > 12) {
+      hours = hours - "12"
+    }
+    if (hours < 10) {
+      hours = "0" + hours
+    }
+    let minutes = myDate.getMinutes()
+    if (minutes < 10) {
+      minutes = "0" + minutes
+    }
+    let seconds = myDate.getSeconds()
+    if (seconds < 10) {
+      seconds = "0" + seconds
+    }
     let idPad = Math.floor(Math.random() * 999).toString()
     let idMilli = myDate.getMilliseconds().toString()
     if (idPad.length === 1) {
@@ -155,7 +208,7 @@ $(document).ready(function () {
     } else if (idMilli.length === 2) {
       idMilli += "0"
     }
-
+    let finalDate = finalYear + month + day + hours + minutes + seconds
     if (finalCount !== 0 && finalCount < 240) {
       console.log({
         _id: idPad + idMilli,
@@ -163,8 +216,8 @@ $(document).ready(function () {
         answer: finalImagery,
         levelNum: 1,
         successfulAttemptsNum: 0,
-        createdOn: date,
-        lastAttemptedOn: date,
+        createdOn: finalDate,
+        lastAttemptedOn: finalDate,
       })
     }
   })
