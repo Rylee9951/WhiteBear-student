@@ -13,7 +13,9 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div
+          class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+        >
           <img
             width="32px"
             src="./assets/branding/logo-app.svg"
@@ -30,17 +32,13 @@
             role="navigation"
             aria-label="navigation"
           >
-            <button
-              id="createNew"
-              type="button"
-              class="btn btn-secondary tab-active"
-            >
+            <button id="createNew" type="button" class="btn btn-secondary">
               Create new
             </button>
             <button
               id="review"
               type="button"
-              class="btn btn-secondary tab-seperator"
+              class="btn btn-secondary tab-seperator tab-active"
             >
               Review
             </button>
@@ -52,26 +50,20 @@
               All cards
             </button>
           </div>
-        </div>
-      </div>
 
-      <div style="width: 100%; margin: 10px 0;" class="text-center mt-2 mb-2">
-        <h4 style="color: #767886;">Out of cards</h4>
-      </div>
-      <div class="row">
-        <div class="col-1"></div>
-        <div
-          style="display: flex; justify-content: space-between;"
-          class="col-10"
-        >
-          <button id="revPrevCard" class="btn btn-link" style="color: black;">
-            Previous card
-          </button>
-          <button id="getMoreCards" class="btn btn-outline-primary btn-lg">
-            Get more cards
-          </button>
+          <div style="width: 100%; margin: 10px 0;" class="text-center">
+            <h4 style="color: #767886;">Out of cards</h4>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button id="revPrevCard" class="btn btn-link" style="color: black;">
+              Previous card
+            </button>
+            <button id="getMoreCards" class="btn btn-outline-primary btn-lg">
+              Get more cards
+            </button>
+          </div>
         </div>
-        <div class="col-1"></div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

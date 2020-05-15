@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="./style/dist.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="position: relative;">
       <div class="row">
-        <div class="col-12">
+        <div
+          class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+        >
           <img
             width="32px"
             src="./assets/branding/logo-app.svg"
@@ -52,126 +54,89 @@
               All cards
             </button>
           </div>
-        </div>
-      </div>
 
-      <div style="width: 100%;" class="text-center mt-2 mb-2">
-        <h4 style="color: #767886;">Add memorable imagery</h4>
-      </div>
-      <div style="margin-top: 10px;" class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-          <div class="row">
-            <div class="col-10">
-              <div
-                style="
-                  background: #51535e;
-                  color: white;
-                  margin: 0 auto;
-                  width: 310px;
-                  padding: 15px;
-                  border-radius: 5px 5px 0 0;
-                "
-                class="card"
-              >
-                <textarea
-                  style="
-                    background: transparent;
-                    border: none;
-                    outline: none;
-                    caret-color: white;
-                    color: white;
-                  "
-                  rows="6"
-                  id="addImagery"
-                ></textarea>
-              </div>
-              <div
-                style="
-                  background: #2a2a30;
-                  color: white;
-                  padding: 15px;
-                  width: 310px;
-                  border-radius: 0 0 5px 5px;
-                "
-                class="card"
-              >
-                <p>
-                  Lucas ipsum dolor sit amet jarael sarn ryn soontir cathar
-                  lando coruscant draethos trioculus bespin. Priapulin nass nien
-                  calrissian dagobah grievous. Olié mothma c-3po wicket c'baoth.
-                  Jagged kastolar kitonak rugor.
-                </p>
+          <div style="width: 100%;" class="text-center mt-2 mb-2">
+            <h4 style="color: #767886;">Add memorable imagery</h4>
+          </div>
+
+          <div class="mb-5">
+            <div class="card bg-primary">
+              <div id="answerBody" class="card-body">Lucas ipsum dolor sit amet jarael sarn ryn soontir cathar lando coruscant draethos trioculus bespin. Priapulin nass nien calrissian dagobah grievous. Olié mothma c-3po wicket c'baoth. Jagged kastolar kitonak rugor.</div>
+            </div>
+
+            <div class="card bg-secondary">
+              <div class="card-body">
+                <textarea rows="6" cols="40" id="addImagery"></textarea>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-1"></div>
-      </div>
-      <div
-        style="margin: 10px auto; width: 340px;"
-        class="d-flex justify-content-end"
-      >
-        <p id="imageryCount">0/240</p>
-      </div>
-      <div class="row">
-        <div class="col-1"></div>
-        <div
-          style="display: flex; justify-content: space-between;"
-          class="col-10"
-        >
-          <button id="backToAnswer" class="btn btn-link" style="color: black;">
-            Back to answer
-          </button>
-          <button
-            id="save"
-            style="display: flex;"
-            class="btn btn-primary btn-lg"
+
+          <div
+            class="d-flex justify-content-end"
           >
-            <img
-              style="width: 16px; margin-top: 5px; margin-right: 3px;"
-              src="./assets/icons/save.svg"
-            />
-            Save
-          </button>
+            <p id="imageryCount">0/240</p>
+          </div>
+
+          <div class="d-flex justify-content-between">
+
+              <button
+                id="backToAnswer"
+                class="btn btn-link"
+                style="color: black;"
+              >
+                Back to answer
+              </button>
+              <button
+                id="save"
+                style="display: flex;"
+                class="btn btn-primary btn-lg"
+              >
+                <img
+                  style="width: 16px; margin-top: 5px; margin-right: 3px;"
+                  src="./assets/icons/save.svg"
+                />
+                Save
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              width: 100%;
+              text-align: center;
+            "
+            id="successAlert"
+            class="alert alert-success"
+            role="alert"
+          >
+            <h4 class="alert-heading">
+              <img style="width: 20px;" src="./assets/icons/success.svg" /> Card
+              created!
+            </h4>
+          </div>
+          <div
+            style="
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              width: 100%;
+              text-align: center;
+            "
+            id="errorAlert"
+            class="alert alert-danger"
+            role="alert"
+          >
+            <h4 class="alert-heading">
+              <img style="width: 20px;" src="./assets/icons/error.svg" /> Oops!
+              Our bad. Please try again.
+            </h4>
+          </div>
         </div>
-        <div class="col-1"></div>
-      </div>
-      <div
-        style="
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          text-align: center;
-        "
-        id="successAlert"
-        class="alert alert-success"
-        role="alert"
-      >
-        <h4 class="alert-heading">
-          <img style="width: 20px;" src="./assets/icons/success.svg" /> Card
-          created!
-        </h4>
-      </div>
-      <div
-        style="
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100%;
-          text-align: center;
-        "
-        id="errorAlert"
-        class="alert alert-danger"
-        role="alert"
-      >
-        <h4 class="alert-heading">
-          <img style="width: 20px;" src="./assets/icons/error.svg" /> Oops! Our
-          bad. Please try again.
-        </h4>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

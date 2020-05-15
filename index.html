@@ -46,23 +46,24 @@
                 <p class="text-primary" style="font-size: 13px;">
                   Lets get you signed up.
                 </p>
-                <form action="./create-answer.html" class="d-flex flex-column">
-                  <div class="d-flex flex-column">
-                    <label class="text-black-50">Email address</label>
-                    <input type="email" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <label class="text-black-50">Create a password</label>
-                    <input type="password" />
-                  </div>
-                  <button
-                    style="margin-top: 20px;"
-                    type="submit"
-                    class="btn btn-success mt-4"
-                  >
-                    Let's go!
-                  </button>
-                </form>
+
+                <div class="d-flex flex-column">
+                  <label class="text-black-50">Email address</label>
+                  <input id="lestGoEmailInput" type="email" />
+                  <label class="text-danger" id="letsGoEmailError"></label>
+                </div>
+                <div class="d-flex flex-column">
+                  <label class="text-black-50">Create a password</label>
+                  <input id="letsGoPassword" type="password" />
+                  <label id="letsGoPasswordError" class="text-danger"></label>
+                </div>
+                <button
+                  style="margin-top: 20px;"
+                  class="btn btn-success mt-4"
+                  id="letsGo"
+                >
+                  Let's go!
+                </button>
               </div>
             </div>
           </div>
