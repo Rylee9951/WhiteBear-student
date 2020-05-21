@@ -15,88 +15,64 @@ $(document).ready(function () {
   let = emailLocalPart = ""
 
   $("#letsGo").click(function () {
-    let emailLength = $("#lestGoEmailInput").val().length
+    let emailLength = $("#letsGoEmailInput").val().length
     let passwordLength = $("#letsGoPassword").val().length
-    let email = $("#lestGoEmailInput").val()
+    let email = $("#letsGoEmailInput").val()
     let password = $("#letsGoPassword").val()
 
-    let = emailLocalPart = email.split("@")[0]
+    let emailLocalPart = email.split("@")[0]
+    let emailSet = new Set(emailLocalPart)
 
     let valid = false
 
     if (emailLength === 0) {
       $("#letsGoEmailError").html("Please enter your email address.")
-      $("#lestGoEmailInput").addClass("border-danger")
+
+      $("#letsGoEmailInput").addClass("is-invalid")
+      valid = false
+    } else if (emailSet.size < 3) {
+      $("#letsGoEmailError").html("Please enter a valid email address.")
+
+      $("#letsGoEmailInput").addClass("is-invalid")
       valid = false
     } else {
       $("#letsGoEmailError").html("")
-      $("#lestGoEmailInput").removeClass("border-danger")
+      $("#letsGoEmailInput").removeClass("is-invalid")
+      $("#letsGoEmailInput").addClass("is-valid")
+
       valid = true
     }
     if (passwordLength === 0) {
       $("#letsGoPasswordError").html("Please enter your password.")
-      $("#letsGoPassword").addClass("border-danger")
+      $("#letsGoPassword").addClass("is-invalid")
       valid = false
     } else if (passwordLength <= 9) {
       $("#letsGoPasswordError").html(
         "Your password must be at least 9 characters."
       )
-      $("#letsGoPassword").addClass("border-danger")
+      $("#letsGoPassword").addClass("is-invalid")
       valid = false
     } else if (password.includes(emailLocalPart)) {
       $("#letsGoPasswordError").html(
         "Your email address cannot be used in your password."
       )
-      $("#letsGoPassword").addClass("border-danger")
+      $("#letsGoPassword").addClass("is-invalid")
+      valid = false
+    } else if (commonPasswords.includes(password)) {
+      $("#letsGoPasswordError").html("Your password is to common.")
+      $("#letsGoPassword").addClass("is-invalid")
       valid = false
     } else {
       $("#letsGoPasswordError").html("")
-      $("#letsGoPassword").removeClass("border-danger")
+      $("#letsGoPassword").removeClass("is-invalid")
+      $("#letsGoPassword").addClass("is-valid")
       valid = true
     }
     if (valid) {
       let myDate = new Date()
 
-      let year = myDate.getFullYear()
-      let splitYear = year.toString().split("")
-      let finalYear = splitYear[2] + splitYear[3]
-      let month = myDate.getMonth() + 1
-      if (month < 10) {
-        month = "0" + month
-      }
-      let day = myDate.getDate()
-      if (day < 10) {
-        day = "0" + day
-      }
-      let hours = myDate.getHours()
-      if (hours > 12) {
-        hours = hours - "12"
-      }
-      if (hours < 10) {
-        hours = "0" + hours
-      }
-      let minutes = myDate.getMinutes()
-      if (minutes < 10) {
-        minutes = "0" + minutes
-      }
-      let seconds = myDate.getSeconds()
-      if (seconds < 10) {
-        seconds = "0" + seconds
-      }
+      createdOn(myDate)
 
-      let idPad = Math.floor(Math.random() * 999).toString()
-      let idMilli = myDate.getMilliseconds().toString()
-      if (idPad.length === 1) {
-        idPad += "00"
-      } else if (idPad.length === 2) {
-        idPad += "0"
-      }
-      if (idMilli.length === 1) {
-        idMilli += "00"
-      } else if (idMilli.length === 2) {
-        idMilli += "0"
-      }
-      let finalDate = finalYear + month + day + hours + minutes + seconds
       console.log({
         _id: idPad + idMilli,
         email: email,
@@ -170,50 +146,13 @@ $(document).ready(function () {
     let finalAnswer = $("#answerBody").html()
 
     let myDate = new Date()
-    let year = myDate.getFullYear()
-    let splitYear = year.toString().split("")
-    let finalYear = splitYear[2] + splitYear[3]
-    let month = myDate.getMonth() + 1
-    if (month < 10) {
-      month = "0" + month
-    }
-    let day = myDate.getDate()
-    if (day < 10) {
-      day = "0" + day
-    }
-    let hours = myDate.getHours()
-    if (hours > 12) {
-      hours = hours - "12"
-    }
-    if (hours < 10) {
-      hours = "0" + hours
-    }
-    let minutes = myDate.getMinutes()
-    if (minutes < 10) {
-      minutes = "0" + minutes
-    }
-    let seconds = myDate.getSeconds()
-    if (seconds < 10) {
-      seconds = "0" + seconds
-    }
-    let idPad = Math.floor(Math.random() * 999).toString()
-    let idMilli = myDate.getMilliseconds().toString()
-    if (idPad.length === 1) {
-      idPad += "00"
-    } else if (idPad.length === 2) {
-      idPad += "0"
-    }
-    if (idMilli.length === 1) {
-      idMilli += "00"
-    } else if (idMilli.length === 2) {
-      idMilli += "0"
-    }
-    let finalDate = finalYear + month + day + hours + minutes + seconds
-    if (finalCount !== 0 && finalCount < 240) {
+    createdOn(myDate)
+
+    if (finalCount !== 0 && finalCount <= 240) {
       console.log({
         _id: idPad + idMilli,
-        imagery: finalAnswer,
-        answer: finalImagery,
+        imagery: `?x=${encodeURIComponent(finalImagery)}`,
+        answer: `?x=${encodeURIComponent(finalAnswer)}`,
         levelNum: 1,
         successfulAttemptsNum: 0,
         createdOn: finalDate,
@@ -245,4 +184,55 @@ $(document).ready(function () {
   // $("#backToAnswer").click(function () {
   //   $("#errorAlert").slideDown()
   // })
+  let finalDate = ""
+  let idPad = ""
+  let idMilli = ""
+  function createdOn(myDate) {
+    let year = myDate.getFullYear()
+    let splitYear = year.toString().split("")
+    let finalYear = splitYear[2] + splitYear[3]
+    let month = myDate.getMonth() + 1
+    if (month < 10) {
+      month = "0" + month
+    }
+    let day = myDate.getDate()
+    if (day < 10) {
+      day = "0" + day
+    }
+    let hours = myDate.getHours()
+    if (hours > 12) {
+      hours = hours - "12"
+    }
+    if (hours < 10) {
+      hours = "0" + hours
+    }
+    let minutes = myDate.getMinutes()
+    if (minutes < 10) {
+      minutes = "0" + minutes
+    }
+    let seconds = myDate.getSeconds()
+    if (seconds < 10) {
+      seconds = "0" + seconds
+    }
+    idPad = Math.floor(Math.random() * 999).toString()
+    idMilli = myDate.getMilliseconds().toString()
+    if (idPad.length === 1) {
+      idPad += "00"
+    } else if (idPad.length === 2) {
+      idPad += "0"
+    }
+    if (idMilli.length === 1) {
+      idMilli += "00"
+    } else if (idMilli.length === 2) {
+      idMilli += "0"
+    }
+    finalDate = finalYear + month + day + hours + minutes + seconds
+  }
 })
+
+//start for charcode for password
+// for(let i =0; i<upper.length;i++){
+//   let charCode = upper.charCodeAt(i)
+//   let newCharCode  = charCode + 1
+//  console.log(String.fromCharCode(newCharCode))
+//  }
