@@ -135,9 +135,9 @@ $(document).ready(function () {
       $("#imageryCount").removeClass("text-danger")
     }
     if (Imacount === 0 || Imacount > 240) {
-      $("#save").attr("disable")
+      $("#save").attr("disabled", true)
     } else {
-      $("#save").removeAttr("disable")
+      $("#save").removeAttr("disabled", false)
     }
   })
   $("#save").click(function () {
@@ -165,12 +165,13 @@ $(document).ready(function () {
   $("#createAnswer").keyup(function () {
     let Anscount = $("#createAnswer").val().length
     $("#answerCount").html(`${Anscount}/240`)
-    if (Anscount > 240) {
-      $("#answerCount").addClass("text-danger")
-    }
+
     if (Anscount === 0 || Anscount > 240) {
-      $("#createNextBtn").attr("disable")
+      $("#createNextBtn").attr("disabled", true)
+      $("#answerCount").addClass("text-danger")
     } else {
+      $("#createNextBtn").attr("disabled", false)
+      $("#answerCount").removeClass("text-danger")
       $("#createNextBtn").click(function () {
         window.location.href = "./create-imagery.html"
       })
@@ -229,10 +230,20 @@ $(document).ready(function () {
     finalDate = finalYear + month + day + hours + minutes + seconds
   }
 })
-
-//start for charcode for password
-// for(let i =0; i<upper.length;i++){
+// let finalArr = []
+// // start for charcode for password
+// for (let i = 0; i < password.length; i++) {
+//   if (password[i] === password[i].toUpperCase()) {
+//     let letter = password[i]
+//     let charCode = letter.charCodeAt(i)
+//     let newCharCode = charCode + 1
+//     finalArr.push(String.fromCharCode(newCharCode))
+//   } else {
+//     let upper = password[i].toUpperCase()
+//     let charCode2 = upper.charCodeAt(i)
+//     let newCharCode2 = charCode2 + 1
+//   }
 //   let charCode = upper.charCodeAt(i)
-//   let newCharCode  = charCode + 1
-//  console.log(String.fromCharCode(newCharCode))
-//  }
+//   let newCharCode = charCode + 1
+//   console.log(String.fromCharCode(newCharCode))
+// }
